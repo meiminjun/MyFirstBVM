@@ -1,0 +1,122 @@
+/*抽奖码页面样式*/
+*{
+    margin:0;
+    padding:0;
+}
+#page_draw{
+    height:100%;
+    width:100%;
+    background-image: url(images/drawCodePage.png);
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+.header{
+    height: 1rem;
+    padding-bottom:0.5rem;
+}
+.header1{
+    font-size: 0.6rem;
+    color: #671C02;
+    text-align: center;
+    font-weight: bold;
+}
+.header2{
+    font-size: 0.5rem;
+    color: #671C02;
+    margin: 0.3rem 0;
+    text-align: center;
+    font-weight: bold;
+}
+#page_draw .recordBtn{
+    height: 1.5rem;
+    background: url("images/myrecord.png");
+    background-repeat: no-repeat;
+    background-size: 3rem;
+    background-position-x: 50%;
+    margin-top: 0.5rem;
+
+}
+#page_draw .reminder {
+    font-size: 0.7rem;
+    color: #671C02;
+    text-align: center;
+    height: 1rem;
+}
+.detail{
+    height: 8rem;
+    font-size: 0.4rem;
+    color: #947554;
+    text-align: center;
+    margin-bottom: 0.6rem;
+    line-height: 0.8rem;
+}
+#page_draw span{
+    color: #671C02;
+    text-align: center;
+}
+#page_draw h3{
+    font-size: 0.5rem;
+    color: #947554;
+    text-align: center;
+    margin:0 auto;
+
+}
+#page_draw .task1{
+    height: 2rem;
+    background: url("images/dotask.png");
+    background-repeat: no-repeat;
+    background-size: 4rem;
+    background-position-x: 50%;
+
+}
+.bottomBox{
+    height: 4rem;
+}
+.recommendBox {
+    width: 11rem;
+    height: 5rem;
+    background-color: #F5E4B9;
+    margin: 0.3rem auto;
+    border-radius: 0.3rem;
+}
+.footerPic {
+    float: left;
+    clear:both;
+}
+.bot-fel-mend{
+    text-align: center;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: #624220;
+    position: relative;
+    top: 1rem;
+
+}
+.bot-fel-recomm{
+    font-size: 0.5rem;
+    font-weight: bold;
+    position: relative;
+    top: 1.2rem;
+    left: 0.4rem;
+    color: #947554;
+}
+.recommend{
+    width: 5rem;
+    height: 1.2rem;
+    background-color: #29CFBD;
+    color: white;
+    margin-top: 1.9rem;
+    margin-left: -0.2rem;
+    border-radius: 3rem;
+    font-size: 0.5rem;
+    line-height: 1.2rem;
+    float: left;
+    text-align: center;
+}
+.clickCopy {
+    font-size: 0.5rem;
+    float: left;
+    margin-top: 2.2rem;
+    margin-left: 0.2rem;
+
+}

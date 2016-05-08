@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="format-detection" content="telephone=no">
+    <script src="script/setDpr.js" defer="defer"></script>
+    <link rel="stylesheet" href="style/main.css" type="text/css"/>
+</head>
+<body>
+<div id="mask-no-color"></div>
+<div id="mask-color-gray"></div>
+<div id="mask-color-opacity-black"></div>
+<div id="mask-loading">
+    <div class="toast-font-icon">
+        <div class="toast-icon-loading rotate-infinite"></div>
+        <p class="toast-font-text font-t1">页面刷新中</p>
+    </div>
+</div>
+<div id="newAlert" class="font-h3"></div>
+<div id="modelBox"></div>
+<div id="pop-scene">
+    <!--我的战绩pop-->
+    <div id="myRecord" class="main_pop main_pop_light main_pop_normal">
+        <div class="main_pop_title"></div>
+        <div id="myRecordClose" class="main_pop_close"></div>
+        <div class="main_pop_content">
+            <h1 class="content_title font-d2">我的战绩</h1>
+            <p class="content_text font-d3">新人奖: <span id="newAward">xxxx</span>M流量</p>
+            <p class="content_text font-d3">推荐奖: <span id="recomAward">xxxx</span>M流量</p>
+            <p class="content_text font-d3">已成功推荐: <span id="recomNum">N</span>人</p>
+        </div>
+        <div class="recom">
+            <div class="recom_text font-t1">
+                <p class="recom_font1">推荐好友注册,拿超级推荐奖励</p>
+                <p class="recom_font2">注册时需要填写您的推荐码</p>
+            </div>
+            <div class="recom_btn font-h3">推荐码 <input type="text" class="font-h2" id="reCodeNo" value="233945" /></div>
+        </div>
+        <div class="recom_new font-h2">您还未领取新人流量，请先领取</div>
+    </div>
+    <!--填写推荐码-->
+    <div id="reCode" class="main_pop main_pop_normal">
+        <div class="main_pop_title"></div>
+        <div id="reCodeClose" class="main_pop_close"></div>
+        <p class="recom_font3 font-t1">如您有推荐码，请填写提交<br/>这个推荐人可以获得10M流量奖励！</p>
+        <input class="font-t1 recom_code" type="text" placeholder="推荐码" maxlength="8">
+        <p class="font-t1 recom_code_label">输入8个字符推荐码</p>
+        <div class="recom_submit font-h2">提交</div>
+        <div class="recom_no_code font-h2">没有推荐码</div>
+    </div>
+    <!--活动规则-->
+    <div id="activeRule" class="main_pop main_pop_high">
+        <div class="main_pop_title"></div>
+        <div id="activeRuleClose" class="main_pop_close"></div>
+        <h2 class="active_rule font-h3">活动规则1</h2>
+        <div class="rule_desc">
+            <div class="rule_font_block font-t1">
+                1.	活动时间：4月20日－5月20日<br/>
+                2.	活动对象：送流量活动仅限一账通新注册用户可以参与。老用户可以参与推荐好友和下载一账通app参加更多精彩的活动。<br/>
+                3.	活动期间：每位一账通新用户注册完成后可获得30M流量，如推荐成功一名用户注册，可再获得10M流量。推荐奖励不设上限，推荐成功的注册用户越多获得的流量越多。<br/>
+                4.	推荐活动以及推荐码，和奖励仅在本次活动中进行，通过其他路径和渠道注册一账通用户无此入口，属于无效操作。<br/>
+                5.	每个一账通账号只有一个专属推荐码。同一个推荐码可多次使用，推荐给多个不同的人。<br/>
+                6.	所有广告位中的业务方广告的解释权均由业务方负责。<br/>
+                7.	免责声明：活动奖品与苹果公司无关｜活动解释权归中国平安所有<br/>
+            </div>
+        </div>
+        <div class="drop_box">
+            <div class="drop_block"></div>
+        </div>
+    </div>
+</div>
+<div id="page">
+    <!--首页-->
+    <div id="page_main" class="pageMode"></div>
+    <!--注册引导页-->
+    <div id="page_guide" class="pageMode page_light"></div>
+    <!--流量领取成功页-->
+    <div id="page_accept" class="pageMode page_light"></div>
+    <!--业务加挂页-->
+    <div id="page_banner" class="pageMode page_light"></div>
+    <!--我的战绩-->
+    <div id="page_myRecord" class="pageMode"></div>
+    <!--做任务赢大奖-->
+    <div id="page_myPrize" class="pageMode"></div>
+
+    <!--单击抽奖页,弹出窗口表示机会用完-->
+    <div id="page_draw" class="pageMode"></div>
+    <!--错误页-->
+    <div id="page_error" class="pageMode"></div>
+</div>
+<!--剪切版功能-->
+<script src="script/libs/require/v2.1.11/require.js" defer="defer" data-main="script/main"></script>
+</body>
+</html>

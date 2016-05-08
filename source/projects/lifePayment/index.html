@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="format-detection" content="telephone=no">
+    <script src="script/setDpr.js" defer="defer"></script>
+    <link rel="stylesheet" href="style/main.css" type="text/css"/>
+</head>
+<body>
+<div id="mask-no-color"></div>
+<div id="mask-color-gray"></div>
+<div id="mask-color-opacity-black"></div>
+<div id="mask-loading">
+    <div class="toast-font-icon">
+        <div class="toast-icon-loading rotate-infinite"></div>
+        <p class="toast-font-text font-t1">页面刷新中</p>
+    </div>
+</div>
+<div id="newAlert" class="font-h3"></div>
+<div id="modelBox"></div>
+<div id="pop-scene"></div>
+<div id="pop-dropBox">
+    <div id="dropCont" class="font-h2"></div>
+    <div id="dropBoxBtn" class="normal-button-frame"></div>
+</div>
+<div id="page">
+    <!--首页-->
+    <div id="page_main" class="pageMode"></div>
+    <!--添加帐户-->
+    <div id="page_addAccount" class="pageMode"></div>
+    <!--查询结果页-->
+    <div id="page_result" class="pageMode"></div>
+    <!--缴费记录页-->
+    <div id="page_payList" class="pageMode"></div>
+    <!--服务协议-->
+    <div id="page_service" class="pageMode"></div>
+    <!--错误页-->
+    <div id="page_error" class="pageMode"></div>
+</div>
+<script src="../../libs/require/v2.1.11/require.js" defer="defer" data-main="script/main"></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+#page_main{
+    background-image: url("images/mainBg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.colorB{
+    color: #3399ff;
+}
+.op2 {
+    opacity: 0.2;
+}
+.underLine{
+    text-decoration: underline;
+    color: #333;
+    font-weight: normal;
+}
+.menuIcon{
+    position: absolute;
+    width: 3.4rem;
+    height: 3.4rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#sIcon {
+    background-image: url('images/sicon.png');
+    top:9.3rem;
+    left: 5.2rem;
+}
+#dIcon {
+    background-image: url('images/dicon.png');
+    top:12rem;
+    left: 8.1rem;
+}
+#qIcon{
+    background-image: url('images/qicon.png');
+    top:13.1rem;
+    left: 4.2rem
+}
+#fIcon{
+    background-image: url('images/ficon.png');
+    top:15.9rem;
+    left: 7.1rem;
+
+}
+#yIcon{
+    background-image: url('images/yicon.png');
+    top:14.3rem;
+    left: 0.4rem;
+}
+#hIcon{
+    background-image: url('images/hicon.png');
+    top:17rem;
+    left: 3.3rem;
+}
+#paymentType,#resultType{
+    width: 2.8rem;
+    height: 2.8rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top:2.8rem;
+    left: 4.3rem;
+    position: absolute;
+    border-radius: 2rem;
+}
+.sIcon{
+    background-image: url('images/sicon.png');
+    border:3px solid #74addc;
+}
+.dIcon{
+    background-image: url('images/dicon.png');
+    border:3px solid #f0c65e;
+}
+.fIcon{
+    background-image: url('images/ficon.png');
+    border:3px solid #5cb1bf;
+}
+.hIcon{
+    background-image: url('images/hicon.png');
+    border:3px solid #e79a5d;
+}
+.qIcon{
+    background-image: url('images/qicon.png');
+    border:3px solid #df5d5c;
+}
+.yIcon{
+    background-image: url('images/yicon.png');
+    border:3px solid #716baf;
+}
+.location{
+    position: absolute;
+    top:6.4rem;
+    left: 4.9rem;
+    width: 4rem;
+    height: 0.47rem;
+    line-height: 0.47rem;
+    background-image: url('images/location.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    color:#666666
+}
+.location .cityName{
+    padding: 0 0 0 0.5rem;
+}
+#payNoUse{
+    position: absolute;
+    top:7.6rem;
+    width: 100%;
+    text-align: center;
+    color: #999999;
+}
+#changeCity{
+    position: absolute;
+    top: 9.4rem;
+    width: 100%;
+    text-align: center;
+    color: #2d4486;
+}
+.area{
+    width: 8rem;
+    height: 4.6rem;
+    background-image: url("images/area.png");
+    background-size: contain;
+    position: absolute;
+    top:13rem;
+    left: 2.1rem;
+}
+.serviceCont{
+    position: absolute;
+    top:2.6rem;
+    padding: 0 0.6rem;
+    color: #666666;
+}
+.serP1{
+    line-height: 0.9rem;
+}
+.serP11{
+    padding: 0.77rem 0 0.22rem 0;
+}
+.serP2{
+    padding: 0.5rem 0 0 0.77rem;
+    position: relative;
+    line-height: 0.85rem;
+}
+.serP2 span{
+    position: absolute;
+    left: 0;
+}
+.serP2 b{
+    font-weight: normal;
+}
+.serP3{
+    padding: 0.5rem 0 0 0.89rem;
+    position: relative;
+    line-height: 0.85rem;
+}
+.serP3 span{
+    position: absolute;
+    left: 0;
+}
+.padding4{
+    padding: 0.55rem 0 0 0;
+}
+#canNotUse{
+    display: none;
+}
+#canUse{
+    position: absolute;
+    top:7.78rem;
+}
+#cusSelect,.cusInput{
+    width: 10.8rem;
+    height: 1.8rem;
+    border:2px solid #c1c1c1;
+    border-radius: 0.4rem;
+    margin: 0 0 0 0.58rem;
+    position: relative;
+}
+.selIcon{
+    border-left: 0.33rem solid transparent;
+    border-right: 0.33rem solid transparent;
+    border-top: 0.33rem solid rgba(129, 129, 129, 0.6);
+    position: absolute;
+    top: 0.81rem;
+    right: 0.6rem;
+}
+.selTitle{
+    background-color: #FFF;
+    position: absolute;
+    top: -0.26rem;
+    color: #999999;
+    left: 0.4rem;
+    padding: 0 0.2rem;
+}
+.selCont{
+    position: absolute;
+    top:0.58rem;
+    left: 0.4rem;
+    color: #333333;
+}
+#inputName,#barCode,#billMoney{
+    margin: 0.82rem 0 0 0.58rem;
+}
+.inputTitle{
+    display: none;
+    background-color: #FFF;
+    position: absolute;
+    top: -0.26rem;
+    color: #999999;
+    left: 0.4rem;
+    padding: 0 0.2rem;
+    z-index: 10;
+}
+.textInput{
+    width: 9.7rem;
+    height: 1.75rem;
+    line-height: 1.75rem;
+    position: absolute;
+    left: 0.4rem;
+    border: none;
+    outline: none;
+    z-index: 1;
+}
+.questionIcon{
+    background-image: url("images/question.png");
+    background-repeat: no-repeat;
+    width: 0.44rem;
+    height: 0.44rem;
+    background-size: contain;
+    display: inline-block;
+    margin: 0 0 0 0.19rem;
+}
+.quesP{
+    margin: 0.19rem 0 0 1rem;
+    color: #999999;
+}
+.checkBtnBlock{
+    margin: 2.18rem 0 0 1.98rem;
+}
+#checkBtn{
+    background-color: #96a1c2;
+}
+.btnNotes{
+    margin: 0.38rem 0 0 1.39rem;
+    color: #999999;
+}
+.oneId{
+    color: #96a1c2;
+}
+#pop-dropBox{
+    width: 100%;
+    height: 6.3rem;
+    background-color: #FFF;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    display:none;
+}
+#dropCont{
+    margin: 1rem 0 0 0;
+    width: 100%;
+    text-align: center;
+    line-height: 0.9rem;
+}
+#dropBoxBtn{
+    margin: 1rem 0 0 2rem;
+    border-color: #3b508e;
+    color: #3b508e;
+}
+#compName{
+    position: absolute;
+    top: 6.41rem;
+    width: 100%;
+    text-align: center;
+    color: #999999;
+}
+#orderNo{
+    position: absolute;
+    top:7.38rem;
+    width: 100%;
+    text-align: center;
+    color: #999999;
+}
+#orderList{
+    position: absolute;
+    top:9.4rem;
+    width: 100%;
+}
+.oneOrder{
+    margin: 0.32rem 0 0 0;
+    height: 2.28rem;
+    line-height: 2.28rem;
+    background-color: #f9f9f9;
+    border-top: 1px solid #C0C0C0;
+    position: relative;
+    color: #333;
+}
+.oneOrderP{
+    padding: 0 0 0 0.64rem;
+}
+.oneOrderBg{
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    background-image: url("images/orderBg.png");
+    background-repeat: repeat-x;
+    bottom: -26px;
+}
+.orderTitle{
+    margin:0 0 0 0.63rem;
+}
+#payBtn{
+    background-color: #2d4486;
+    position: absolute;
+    bottom: 0;
+}
+.payListTitle{
+    position: absolute;
+    left: 8.3rem;
+    top: 2.6rem;
+    color: #2d4486;
+    background-image: url("images/payListIcon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0 0 0 0.91rem;
+}
+.payListCont{
+    position: absolute;
+    top:3.79rem;
+}
+.onePayList{
+    height: 1.67rem;
+    margin-bottom: 1.14rem;
+    padding: 0 0 0 1.58rem;
+    background-repeat: no-repeat;
+    background-position: 0.5rem 0.6rem;
+}
+#addMoreAccount{
+    position: absolute;
+    top: 16.5rem;
+    border-top: 2px solid #d7d7d7;
+    width: 100%;
+}
+.payName{
+    margin-bottom: 0.28rem;
+    color: #333333;
+}
+.payAccount{
+    color: #999999;
+}
+.sPayType{
+    background-image: url("images/sSmallIcon.png");
+}
+.dPayType{
+    background-image: url("images/dSmallIcon.png");
+}
+.qPayType{
+    background-image: url("images/qSmallIcon.png");
+}
+.moreAccountTitle{
+    height: 1.61rem;
+    line-height: 1.61rem;
+    color: #666666;
+    text-align: center;
+}
+.accountList{
+    float: left;
+    margin-left: 1.78rem;
+}

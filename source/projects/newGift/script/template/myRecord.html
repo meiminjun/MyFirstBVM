@@ -1,0 +1,109 @@
+<div class="page-feil">
+    <div class="h-page-m">
+    <header style="width: 100%;height: 40%;">
+        <div class="h-head">
+            <div class="h-bagan"></div>
+            <div class="h-record">我的战绩</div>
+        </div>
+
+        <div class="p-head-bot">
+            <div class="p-head-t"></div>
+            <div class="p-head-bot-cen">
+                <div class="p-head-flow">我共获得了：</div>
+                <div class="p-head-w"><label class="red">50</label>兆流量</div>
+                <div class="p-head-red"><label class="red">30</label>元现金红包</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="p-center">
+
+        <div class="cen-draw">我的抽奖码</div>
+        <div class="cen-draw-c" id="recordList">
+            <!--<div class="cen-draw-s">-->
+                <!--<div class="cen-draw-i"><img src="../newGift/style/images/p3.2.1.png"/> </div>-->
+                <!--<div class="sibemit" id="sibemit">领取奖品</div>-->
+                <!--<div class="cen-draw-text">-->
+                    <!--<div class="cen-draw-code"><label class="p-feil">抽奖码</label> <label id="Idcody">445656</label></div>-->
+                    <!--<div class="cen-draw-y-n"><label class="p-feil">是否中奖</label> <label id="NoweCody">是</label></div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="cen-draw-s">-->
+                <!--<div class="cen-draw-i"><img src="../newGift/style/images/p3.2.1.png"/> </div>-->
+                <!--<div class="cen-draw-text">-->
+                    <!--<div class="cen-draw-code"><label class="p-feil">抽奖码</label> <label id="Idcody">445656</label></div>-->
+                    <!--<div class="cen-draw-y-n"><label class="p-feil">是否中奖</label> <label id="NoweCody">未开奖</label></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<section class="p-sim" id="p-sim">
+    <div class="p-page" id="p-main">
+        <form class="index" autocomplete="off" method="post" id="convertForm">
+        <div class="p-page-main">
+            <div class="p-main-fell">
+                <div class="x-hide" id="x-hide"></div>
+                <div class="p-recode-ro">奖品领取</div>
+                <div class="p-recode-rt">您领取到的奖品，将于活动结束后7天完成寄送</div>
+                <div class="p-recode-rte">请输入您的收货信息</div>
+            </div>
+            <div class="p-from">
+                <div class="p-from-sim">
+                    <div class="p-from-sim">
+                        <!--<span class="p-cody">姓名</span>-->
+                        <span><input type="text" class="cody" id="Name" placeholder="姓名"></span>
+                        <div class="p-bottom" id="bot-name"></div>
+                        <div class="p-bottom-null p-bottom-null-name" id="bot-Nonull">姓名不能为空</div>
+                    </div>
+
+                    <div class="p-from-sim">
+                        <!--<span class="p-cody">收货地址</span>-->
+                        <span><input type="text" class="cody" id="feil" placeholder="收货地址"></span>
+                        <div class="p-bottom" id="bot-code"></div>
+                        <div class="p-bottom-null p-bottom-null-code" id="bot-Nonull">收货地址不能为空</div>
+                    </div>
+                    <div class="p-bottom"></div>
+                </div>
+
+                <div class="p-from-sim">
+                    <!--<span class="p-cody">身份证</span>-->
+                    <span><input type="text" class="cody sim-cody" id="cody-rie" placeholder="身份证" value="522635197306216575"></span>
+                    <div class="p-line" style="display: block;"></div>
+                    <div class="p-bottom" id="bot-rie"></div>
+                    <div id="tel-sim" class="dsim sim-color">身份证格式不正确</div>
+                    <div class="p-bottom-null p-bottom-null-rie" id="bot-Nonull">身份证号码不能为空</div>
+                </div>
+
+                <div class="p-from-sim p-from-codephop" style="position: relative;top: 2.3rem;">
+                    <!--<span class="p-cody">手机号码</span>-->
+                    <span><input type="text" class="cody" id="cody-ph" placeholder="手机号码" value="13667985643"></span>
+                    <div class="p-line" style="display: block;"></div>
+                    <div class="p-bottom" id="p-bottom-phon"></div>
+                    <div id="tel-tip" class="dsn sim-colorph">手机输入不符合规范</div>
+                    <div class="p-bottom-null p-bottom-null-phon" id="bot-Nonull">手机号码不能为空</div>
+                </div>
+
+                <div class="p-from-sim p-from-varcode">
+                    <!--<span class="p-cody">动态验证码</span>-->
+                    <span><input type="text" class="cody-verification" id="verification-cody" placeholder="动态验证码"></span>
+                    <div class="cody-cd">获取验证码</div>
+                    <div class="p-bottom"></div>
+                    <div class="p-bottom-null p-bottom-null-verif" id="bot-Nonull">验证码不能为空</div>
+                </div>
+
+
+                <div class="p-page-sibmit" id="p-page-sibmit">
+                    <div class="simt-tur">确认提交</div>
+                </div>
+            </div>
+        </div>
+</form>
+    </div>
+
+</section>
