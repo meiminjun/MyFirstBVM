@@ -18,6 +18,45 @@ define(function(){
         var data = {};
         data = backUserInfo(data);
         $.ajax({
+            type : 'POST',
+            url : getSummaryUrl,
+            data:data,
+            timeout:20000, //设定20秒为接口访问的超时时间
+            dataType:"json",
+            success : function(response) {
+                //把相关返回传给相关数据方进行处理
+                (function(){
+                    //通过立即执行函数构建一个独立作用域
+                    var code = response.code;
+                    if(code=="1") {
+                        //系统错误,具体code要按接口文档来
+                        PINGAN.view.errorPage("1");
+                    }else{
+                        //其他情况就是正常状态
+                        var state = response.body.state;
+                        PINGAN.BvmEvent.indexVM.run();
+                    }
+                })();
+            },
+            error : function(xhr, errorType) {
+                if(errorType=="timeout"){
+                    //网络超时
+                    PINGAN.view.errorPage("5");
+                }else{
+                    //把接口出错，都归结于网络问题，暂不细化
+                    PINGAN.view.errorPage("0");
+                }
+
+            }
+        });
+    }
+    function page_lottery () {
+        //这是DEMO，函数名要和接口文档中的对应接口名一直
+        //var getSummaryUrl = serverUrl+"/lottery/api/leftOrRight/getSummary.do";
+        var getSummaryUrl = "./script/mock/getSummary.json";
+        var data = {};
+        data = backUserInfo(data);
+        $.ajax({
             type : 'get',
             url : getSummaryUrl,
             data:data,
@@ -36,7 +75,7 @@ define(function(){
                         var state = response.body.state;
                         //alert(11);
                         //alert("获得数据"+state);
-                        PINGAN.BvmEvent.mainPageVM.run(state);
+                        PINGAN.BvmEvent.page_lotteryVM.run(state);
                     }
                 })();
             },
@@ -249,13 +288,19 @@ define(function(){
             }
         });
     }
-    function getRecord(){
+    function getRecord(ssoTickInfo){
         var getMyRecordUrl = "script/mock/getRecord.json";//模拟数据
         var data = {};//请求接口数据
+        data = backUserInfo(data);
+        if(ssoTickInfo) {
+            data.ssoTicket = ssoTickInfo.SSOTicket;
+            data.signature = ssoTickInfo.signature;
+            data.timestamp = ssoTickInfo.timestamp;
+        }
         $.ajax({
-            type : 'GET',
+            type : 'POST',
             url : getMyRecordUrl,
-           // data:data,
+            data:data,
             dataType:"json",
             success : function(response) {
                 var code = response.code;//获取请求接口返回值中code值
@@ -293,6 +338,7 @@ define(function(){
 
     return {
         indexInter:indexInter,
+        page_lottery:page_lottery,
         acceptInter:acceptInter,
         checkUserRewardType:checkUserRewardType,
         myRecordInter:myRecordInter,

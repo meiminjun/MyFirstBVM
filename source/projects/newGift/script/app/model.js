@@ -1,10 +1,10 @@
 //业务数据处理
 define(function(){
 
-function myPrizeto(){
 
+    function indexM () {
 
-}
+    }
     function modelRe(data){
         var phonecode=document.getElementById("cody-ph");
         var phonerie=document.getElementById("cody-rie");
@@ -21,7 +21,7 @@ function myPrizeto(){
             elementVar = elementVar + '\<div class="cen-draw-s">'+
                 '\<div class="cen-draw-i"><img src="'+obj.prizeImagePath+'"/> </div>';
             if(obj.isPrize=='Y'){
-                elementVar = elementVar + '\<div class="sibemit">领取奖品</div>';
+                elementVar = elementVar + '\<div class="sibemit">领取奖品</div><input name="prizeId" type="hidden" value="'+obj.prizeId+'" >';
             }
 
             elementVar = elementVar + '\<div class="cen-draw-text">'+
@@ -42,7 +42,7 @@ function myPrizeto(){
     }
 
 
-    function mainPageM (body) {
+    function page_lotteryM (body) {
         //alert("model获得的入参数据");
         //alert(body);
     }
@@ -159,7 +159,8 @@ function myPrizeto(){
     }
 
     return {
-        mainPageM:mainPageM,
+        indexM:indexM,
+        page_lotteryM:page_lotteryM,
         testM:testM,
         acceptM:acceptM,
         checkUser:checkUser,

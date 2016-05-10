@@ -101,22 +101,14 @@
     color: #947554;
 }
 .recommend{
-    width: 5rem;
-    height: 1.2rem;
+    width: 8rem;
+    height: 1.3rem;
     background-color: #29CFBD;
     color: white;
-    margin-top: 1.9rem;
-    margin-left: -0.2rem;
+    margin:1.9rem auto;
     border-radius: 3rem;
-    font-size: 0.5rem;
-    line-height: 1.2rem;
-    float: left;
+    font-size: 0.6666rem;
+    line-height: 1.3rem;
     text-align: center;
 }
-.clickCopy {
-    font-size: 0.5rem;
-    float: left;
-    margin-top: 2.2rem;
-    margin-left: 0.2rem;
 
-}

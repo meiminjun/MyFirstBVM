@@ -86,16 +86,25 @@ define(function(require){
             },10); //加上100毫秒的延时加载
         }
     }
-    function mainPage (body) {
+    function indexPage () {
+        console.log("加载首页了");
+        //主游戏界面
+        showLoading();
+        var pageHtml = require("text!template/main.html");
+        var pageDom = document.getElementById("page_main");
+        pageDom.innerHTML = pageHtml;
+        showAptPage("page_main",0,1); //首页不纪录游戏纪录
+    }
+    function page_lottery (body) {
         //console.log("加载首页了");
         //alert("view获得入参数据"+body);
 
         //主界面
         showLoading();
         var pageHtml = require("text!template/mainPage.html");
-        var pageDom = document.getElementById("page_main");
+        var pageDom = document.getElementById("page_lottery");
         pageDom.innerHTML = pageHtml;
-        showAptPage("page_main",1,1); //首页不纪录游戏纪录
+        showAptPage("page_lottery",1,1); //首页不纪录游戏纪录
     }
     function drawPage () {
         //领取抽奖码界面
@@ -262,7 +271,7 @@ define(function(require){
     }
 
     return {
-
+        indexPage:indexPage,
         acceptPage:acceptPage,
         bannerPage:bannerPage,
         errorPage:errorPage,
@@ -270,7 +279,7 @@ define(function(require){
         lotteryPage:lotteryPage,
         myRecordPage:myRecordPage,
         myPagePrize:myPagePrize,
-        mainPage: mainPage,
+        page_lottery: page_lottery,
         drawPage:drawPage
     };
 });
