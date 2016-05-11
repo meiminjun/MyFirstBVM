@@ -50,10 +50,10 @@ define(function(){
             }
         });
     }
-    function page_lottery () {
+    function page_lottery (body) {
         //这是DEMO，函数名要和接口文档中的对应接口名一直
         //var getSummaryUrl = serverUrl+"/lottery/api/leftOrRight/getSummary.do";
-        var getSummaryUrl = "./script/mock/getSummary.json";
+        var getSummaryUrl = "./script/mock/rewardActivityInfoV2.json";
         var data = {};
         data = backUserInfo(data);
         $.ajax({
@@ -72,9 +72,8 @@ define(function(){
                         PINGAN.view.errorPage("1");
                     }else{
                         //其他情况就是正常状态
-                        var state = response.body.state;
-                        //alert(11);
-                        //alert("获得数据"+state);
+                        var state = response.body.drawNum;
+                        alert("获得数据"+state);
                         PINGAN.BvmEvent.page_lotteryVM.run(state);
                     }
                 })();

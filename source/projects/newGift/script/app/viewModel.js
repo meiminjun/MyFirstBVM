@@ -18,7 +18,8 @@ define(function(){
             viewChain:PINGAN.view.indexPage,
             modelChain:PINGAN.model.indexM,
             callBack:indexEvnt,
-            autoRun:true
+            autoRun:false
+
 
         });
         PINGAN.BvmEvent.testRe = new Bvm({
@@ -34,7 +35,7 @@ define(function(){
             viewChain:PINGAN.view.page_lottery,
             modelChain:PINGAN.model.page_lotteryM,
             callBack:page_lotteryEvnt,
-            autoRun:false
+            autoRun:true
         });
         PINGAN.BvmEvent.drawVM = new Bvm({
             //interFace: {func:PINGAN.interFace.indexInter, async:true},
@@ -90,18 +91,33 @@ define(function(){
         PINGAN.BvmEvent.myPrize = new Bvm({
            // interFace:{func:PINGAN.interFace.PagePrize, async:true},
             viewChain:PINGAN.view.myPagePrize,
-            modelChain:PINGAN.model.myPrizeto,
+           // modelChain:{func:PINGAN.model.myPrizeto, async:true},
             callBack:showmyPze,
             autoRun:false
-
         })
 }
 
+        function showmyPze(){
+            var $simbot = $(".p-pop-bt-popup");
+            $simbot.tap(function(){
+                PINGAN.BvmEvent.mainPageVM.run();
+            })
+            $('.p-pop-bt-reward').on("click",function(){
+                $('.p-Popup').hide();
+                $('.x-hide-option').hide();
+            })
+
+
+
+        }
 
     function myRepage(){
         $('.sibemit').on("click",function(){
             $('.p-main').show();
             $('#p-sim').css('display','block');
+            var parentObj = $(this).parent();
+            var prizeId = parentObj.children("input[name='prizeId']").val();
+            $("#prizeId").val(prizeId);
         });
         $('#x-hide').on("click",function(){
             $('#p-sim').hide();
@@ -181,11 +197,11 @@ define(function(){
         if (str.test(mobileNo)) {
             $('.sim-colorph').css('display','none');
             $('.p-bottom-null-phon').hide();
-            //return true;
+            return true;
         } else {
             $('.sim-colorph').css('display','block');
             $('.p-bottom-null-phon').show();
-            //return false;
+            return false;
         }
     }
 
@@ -194,8 +210,10 @@ define(function(){
         var name = $('#Name').val();
         if(name == null || name ==''){
             $('.p-bottom-null-name').show();
+            return false;
         }else if(name.length > 1 || name.length < 16){
             $('.p-bottom-null-name').hide();
+            return true;
         }
     }
     //收货地址不能为空
@@ -203,8 +221,10 @@ define(function(){
         var code = $('#feil').val();
         if(code == null || code ==''){
             $('.p-bottom-null-code').show();
+            return false;
         }else if(code.length > 1 || code.length < 16){
             $('.p-bottom-null-code').hide();
+            return true;
         }
     }
     //身份证不能为空
@@ -212,8 +232,10 @@ define(function(){
         var rie = $('#cody-rie').val();
         if(rie == null || rie ==''){
             $('.p-bottom-null-rie').show();
+            return false;
         }else if(rie.length > 1){
             $('.p-bottom-null-rie').hide();
+            return true;
         }
     }
     //手机不能为空
@@ -222,9 +244,11 @@ define(function(){
         if(phon == null || phon ==''){
             $('.p-bottom-null-phon').show();
             $('.sim-colorph').css('display','none');
+            return false;
         }else if(phon.length > 1){
             $('.p-bottom-null-phon').hide();
             $('.sim-colorph').css('display','block');
+            return true;
         }
     }
     //验证码不能为空
@@ -233,33 +257,42 @@ define(function(){
         var verification =$('#verification-cody').val();
         if(verification == null || verification ==''){
             $('.p-bottom-null-verif').show();
+            return false;
         }else if(verification.length > 1 || verification.length < 6){
             $('.p-bottom-null-verif').hide();
+            return true;
         }
     }
 
 
     //提交表单数据
-    function submitConvertPrize(){
+    function submitConvertPrize(prizeId){
+        if(validateName() && validatefeil() && validateVerifi() && validateIdCard() && validateMabble()) {
+            var date ={};
 
-        if(validateName() & validatefeil() & validateVerifi() & validateIdCard() & validateMabble()){
-
-        }
             var submitUrl = "script/mock/submitRecord.json";
             $.ajax({
-                type:"POST",
-                url:submitUrl,
-                dataType:'json',
-                success:function(responseData){
+                type: "POST",
+                url: submitUrl,
+                date:date,
+                dataType: 'json',
+                success: function (responseData) {
+                    var resultCode = responseData.body.resultCode;
+                   // alert(responseData.body.resultCode);
+                   if(resultCode == '1'){
+                       alert("提交失败");
+                       return false;
+                   }else if(resultCode == '0'){
+                       alert("提交成功");
+                       $('#p-sim').hide();
+                       return true;
 
-                    alert(responseData.body.resultCode);
-                    alert("提交成功");
-                   $('#p-sim').hide();
+                   }
                 }
 
             })  ;
 
-
+        }
 
        // sibmitsle();
        // window.location.href = PINGAN.BvmEvent;
@@ -310,28 +343,36 @@ define(function(){
         var $explain = $(".main_explain"); //活动说明
         var $main_record = $(".main_record"); //我的战绩
         var $main_accBtn = $(".main_accBtn"); //我要领取
-        $explain.tap(function(){
-            //显示活动规则
-            showActiveRule();
-        });
+    //    $explain.tap(function(){
+    //        //显示活动规则
+    //        showActiveRule();
+    //    });
+    //    $main_record.tap(function(){
+    //        //显示我的战绩
+    //        App.call(["sendMessage"],function(ticketInfo){
+    //            var ssoTickInfo = JSON.parse(ticketInfo);
+    //            PINGAN.BvmEvent.testRe.run(ssoTickInfo);
+    //        },function(){},["getSSOTicket"]);
+    //        MaiDian("0104-点击'我的战绩'按钮");
+    //    });
+    //    $main_accBtn.tap(function(){
+    //        //我要领取
+    //        App.call(["sendMessage"],function(ticketInfo){
+    //            var ssoTickInfo = JSON.parse(ticketInfo);
+    //            PINGAN.BvmEvent.acceptVM.run(ssoTickInfo);
+    //        },function(){},["getSSOTicket"]);
+    //        MaiDian("0103-点击'我要领取'按钮");
+    //        //PINGAN.BvmEvent.acceptVM.run();
+    //    });
         $main_record.tap(function(){
-            //显示我的战绩
-            App.call(["sendMessage"],function(ticketInfo){
-                var ssoTickInfo = JSON.parse(ticketInfo);
-                PINGAN.BvmEvent.myRecord.run(ssoTickInfo);
-            },function(){},["getSSOTicket"]);
-            MaiDian("0104-点击'我的战绩'按钮");
-        });
+            PINGAN.BvmEvent.testRe.run();
+        })
         $main_accBtn.tap(function(){
-            //我要领取
-            App.call(["sendMessage"],function(ticketInfo){
-                var ssoTickInfo = JSON.parse(ticketInfo);
-                PINGAN.BvmEvent.acceptVM.run(ssoTickInfo);
-            },function(){},["getSSOTicket"]);
-            MaiDian("0103-点击'我要领取'按钮");
-            //PINGAN.BvmEvent.acceptVM.run();
-        });
+            PINGAN.BvmEvent.acceptVM.run();
+        })
+
     }
+
     function page_lotteryEvnt () {
 
         var $recordBtn = $("#recordBtn");//我的战绩
@@ -595,7 +636,7 @@ define(function(){
             location.href = PINGAN.appDownUrl;
         });
         $guide_skip_span.tap(function(){
-            PINGAN.BvmEvent.bannerVm.run();
+            PINGAN.BvmEvent.page_lotteryVM.run();
             MaiDian("0403-点击'请点击直接跳过'按钮");
         });
         closeWebView();
