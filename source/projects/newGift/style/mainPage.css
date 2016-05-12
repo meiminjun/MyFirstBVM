@@ -147,9 +147,12 @@
 
 }
 .bodyWrap .Mid p{
-    font-size: 0.4rem;
+    margin-left: 0.1rem;
+    font-size: 0.35rem;
     color: #624220;
-
+}
+.bodyWrap .Mid span{
+    margin-left:0.5rem;
 }
 .bodyWrap .Bottom {
     width: 5.1rem;

@@ -38,7 +38,7 @@ define(function(){
             autoRun:true
         });
         PINGAN.BvmEvent.drawVM = new Bvm({
-            //interFace: {func:PINGAN.interFace.indexInter, async:true},
+            //interFace: {func:PINGAN.interFace.drawInter, async:true},
             viewChain:PINGAN.view.drawPage,
             modelChain:PINGAN.model.drawM,
             callBack:drawEvnt,
@@ -377,7 +377,7 @@ define(function(){
 
         var $recordBtn = $("#recordBtn");//我的战绩
         var $drawcode = $("#drawcode"); //领取抽奖码
-        var $rightbtn = $("#rightbtn"); //我要领取
+        var $rightbtn = $("#rightbtn"); //弹出框,表示机会用完
         var $taskbtn2 = $("#taskbtn2");//做任务页面
         var $backmain = $("#backmain");//关闭弹出框,回到主页面
         var $mytaskbtn = $("#mytaskbtn");//从弹出框单击到做任务页面
@@ -423,7 +423,7 @@ define(function(){
     function drawEvnt(){
         var $recordBotton = $("#recordBotton");//我的战绩
         var $task1 = $("#task1");//继续做任务
-        var $closedraw = $("#closedraw");//返回mainPage页面
+        var $closedraw = $("#closedraw");//返回page_lottery页面
 
         $recordBotton.tap(function(){
             PINGAN.BvmEvent.testRe.run();
@@ -432,7 +432,7 @@ define(function(){
             PINGAN.BvmEvent.myPrize.run();
         });
         $closedraw.tap(function(){
-            //单机领取抽奖码的两种情况
+            //返回page_lottery页面
             PINGAN.BvmEvent.page_lotteryVM.run();
         });
 

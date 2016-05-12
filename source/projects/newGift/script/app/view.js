@@ -95,7 +95,7 @@ define(function(require){
         pageDom.innerHTML = pageHtml;
         showAptPage("page_main",0,1); //首页不纪录游戏纪录
     }
-    function page_lottery (body) {
+    function page_lottery () {
         //console.log("加载首页了");
         //alert("view获得入参数据"+body);
 

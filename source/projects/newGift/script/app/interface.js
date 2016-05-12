@@ -50,14 +50,14 @@ define(function(){
             }
         });
     }
-    function page_lottery (body) {
+    function page_lottery (response) {
         //这是DEMO，函数名要和接口文档中的对应接口名一直
         //var getSummaryUrl = serverUrl+"/lottery/api/leftOrRight/getSummary.do";
         var getSummaryUrl = "./script/mock/rewardActivityInfoV2.json";
         var data = {};
         data = backUserInfo(data);
         $.ajax({
-            type : 'get',
+            type : 'GET',
             url : getSummaryUrl,
             data:data,
             timeout:20000, //设定20秒为接口访问的超时时间
@@ -70,11 +70,20 @@ define(function(){
                     if(code=="1") {
                         //系统错误,具体code要按接口文档来
                         PINGAN.view.errorPage("1");
+                    }else if(code=="7201"||code=="7202"||code=="7204"){
+                        //当前用户未登陆,直接登陆
+                        var loginUrl = response.body.toaH5Url;
+                        location.replace(loginUrl);
+                        localStorage.setItem("userState",code); //标记下用户状态
+                    }else if(code=="7207"){
+                        var toaUpgradeUrl = response.body.toaUpgradeUrl;
+                        location.replace(toaUpgradeUrl);
+                        localStorage.setItem("userState",code); //标记下用户状态
                     }else{
+
                         //其他情况就是正常状态
-                        var state = response.body.drawNum;
-                        alert("获得数据"+state);
-                        PINGAN.BvmEvent.page_lotteryVM.run(state);
+                        PINGAN.BvmEvent.page_lotteryVM.run(response);
+
                     }
                 })();
             },
@@ -90,6 +99,7 @@ define(function(){
             }
         });
     }
+
     function acceptInter (ssoTickInfo) {
         //领取
         var acceptInterUrl = PINGAN.serverUrl+"/lottery/api/newUserReward/acceptReward.do";

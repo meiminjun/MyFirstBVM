@@ -41,12 +41,22 @@ define(function(){
 
     }
 
+    function page_lotteryM (response) {
 
-    function page_lotteryM (body) {
-        //alert("model获得的入参数据");
-        //alert(body);
+        $("#numberOfTime").html(response.body.drawNum);
+
+        var activeNum = response.body.rewardActivityInfo[0].activityNum;
+        var prizeNum = response.body.rewardActivityInfo[0].prizeNum;
+        debugger;
+        var peopleNumber = response.body.rewardActivityInfo[1].activityNum;
+        $("#population_0").html(activeNum);
+        $("#prizeQty").html(prizeNum);
+        $("#peopleNumber").html(peopleNumber);
     }
-    function drawM () {
+    function drawM (response) {
+        var reCodeNo = $("#guideReCodeNo"); //推荐码
+        var inviteCode = localStorage.getItem("inviteCode");
+        reCodeNo.val(inviteCode);
 
     }
     function myPrizeto(){

@@ -39,6 +39,7 @@ PINGAN.pluginId = "PA02100000000_02_XRLD"; //当前的插件Id
 PINGAN.pluginName = "RYM_XRLD 新人有礼"; //当前的插件名称
 PINGAN.BvmEvent = {}; //回调链控制台
 PINGAN.appDownUrl = "http://m.pingan.com/c2/sys/tuiguang/weixin/index.html?app=yzt-wtg18"; //一账通下载地址
+//PINGAN.temporary={};
 
 if(location.href.indexOf("localhost")>-1){
     PINGAN.serverUrl = "https://maam-dmzstg3.pingan.com.cn:56443";
