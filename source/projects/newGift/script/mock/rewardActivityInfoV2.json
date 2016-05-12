@@ -1,0 +1,30 @@
+{
+  "body": {
+    "drawNum": "5",
+    "rewardActivityInfo":[{
+      "activityNum":"10000",
+      "lotteryTime ":"2016-05-20 12:00:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IWATCH",
+      "prizeNum":"10",
+      "winnerCode":"22222222"
+    },{
+      "activityNum ":"50000",
+      "lotteryTime ":"2016-05-16 12:00:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_1000FUELCARD",
+      "prizeNum":"5",
+      "winnerCode":"11111111"
+    },{
+      "activityNum ":"100000",
+      "lotteryTime ":"2016-05-18 12:00:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IPHONE6S",
+      "prizeNum":"8",
+      "winnerCode":""
+    }],
+
+    "newReward": "100",
+    "isNewUser": "Y"
+  },
+  "code": "0",
+  "message": " Operation successfully."
+}
+

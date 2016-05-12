@@ -2,11 +2,13 @@
   "body":{
     "recordList":[
       {
+        "prizeId":"1234",
         "drawCode": "789458",
         "prizeImagePath": "http://img.taopic.com/uploads/allimg/110906/1382-110Z611025585.jpg",
         "isPrize": "Y"
       },
       {
+        "prizeId":"78976",
         "drawCode": "876569",
         "prizeImagePath": "http://pic.nipic.com/2008-01-05/200815142355195_2.jpg",
         "isPrize": "N"
