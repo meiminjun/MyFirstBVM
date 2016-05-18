@@ -96,14 +96,15 @@ define(function(require){
         showAptPage("page_main",0,1); //首页不纪录游戏纪录
     }
     function page_lottery () {
-        //console.log("加载首页了");
-        //alert("view获得入参数据"+body);
-
         //主界面
         showLoading();
         var pageHtml = require("text!template/mainPage.html");
         var pageDom = document.getElementById("page_lottery");
         pageDom.innerHTML = pageHtml;
+        var clientHeight = window.document.body.clientHeight;
+        var domeHeight = clientHeight+"px";
+
+        $("#page_lottery").css('height',domeHeight);
         showAptPage("page_lottery",1,1); //首页不纪录游戏纪录
     }
     function drawPage () {
@@ -112,7 +113,15 @@ define(function(require){
         var pageHtml = require("text!template/draw.html");
         var pageDom = document.getElementById("page_draw");
         pageDom.innerHTML = pageHtml;
-        showAptPage("page_draw",0,1); //首页不纪录游戏纪录
+        showAptPage("page_draw",1,1); //首页不纪录游戏纪录
+    }
+    function overTimePage () {
+        //领取抽奖码界面
+        showLoading();
+        var pageHtml = require("text!template/overTime.html");
+        var pageDom = document.getElementById("page_overTime");
+        pageDom.innerHTML = pageHtml;
+        showAptPage("page_overTime",1,1); //首页不纪录游戏纪录
     }
 
     function acceptPage(userAcceptInfo) {
@@ -200,9 +209,10 @@ define(function(require){
         $('#x-hide').on("click",function(){
             $('#p-sim').hide();
         });showAptPage("page_myRecord",1,1); //首页不纪录游戏纪录
-
-
     }
+
+
+
 
     function myPagePrize(pageName) {
        // showLoading();
@@ -280,6 +290,7 @@ define(function(require){
         myRecordPage:myRecordPage,
         myPagePrize:myPagePrize,
         page_lottery: page_lottery,
-        drawPage:drawPage
+        drawPage:drawPage,
+        overTimePage:overTimePage
     };
 });

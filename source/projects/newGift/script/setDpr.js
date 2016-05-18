@@ -39,6 +39,6 @@
     docEl.style.fontSize = rem + 'px'; //设定html基本字体大小
     docEl.style.width = "100%";
     docEl.style.height = "100%";
-    docEl.style.overflow = "hidden";
+    docEl.style.overflowx = "hidden";
 
 })(window);

@@ -9,6 +9,7 @@ define(function(){
     PINGAN.BvmEvent.drawVM = {};//获取抽奖码页面
     PINGAN.BvmEvent.testRe = {};
     PINGAN.BvmEvent.myPrize = {};
+    PINGAN.BvmEvent.overTimeVM = {};//超时浮层
 
 
     function selectPage () {
@@ -19,9 +20,8 @@ define(function(){
             modelChain:PINGAN.model.indexM,
             callBack:indexEvnt,
             autoRun:false
-
-
         });
+        //我的战绩
         PINGAN.BvmEvent.testRe = new Bvm({
             interFace: {func:PINGAN.interFace.getRecord, async:true},
             viewChain:PINGAN.view.myRecordPage,
@@ -29,7 +29,7 @@ define(function(){
             callBack:myRepage,
             autoRun:false
         });
-
+           //抽奖页
         PINGAN.BvmEvent.page_lotteryVM = new Bvm({
             interFace: {func:PINGAN.interFace.page_lottery, async:true},
             viewChain:PINGAN.view.page_lottery,
@@ -37,22 +37,31 @@ define(function(){
             callBack:page_lotteryEvnt,
             autoRun:true
         });
+        //推荐抽奖码
         PINGAN.BvmEvent.drawVM = new Bvm({
-            //interFace: {func:PINGAN.interFace.drawInter, async:true},
+            interFace: {func:PINGAN.interFace.drawInter, async:true},
             viewChain:PINGAN.view.drawPage,
             modelChain:PINGAN.model.drawM,
             callBack:drawEvnt,
             autoRun:false
         });
-
+        //超时浮层
+        PINGAN.BvmEvent.overTimeVM = new Bvm({
+            //interFace: {func:PINGAN.interFace.overTimeInter, async:true},
+            viewChain:PINGAN.view.overTimePage,
+            modelChain:PINGAN.model.overTimeM,
+            //callBack:overTimeEvnt,
+            autoRun:false
+        });
         //领取接口的逻辑,先判断当前用户的状态,是否为新用户,是否领过奖
         PINGAN.BvmEvent.acceptVM = new Bvm({
             interFace: {func:PINGAN.interFace.checkUserRewardType, async:true},
-            modelChain:{func:PINGAN.model.acceptM, async:true},
             viewChain:PINGAN.view.acceptPage,
+            modelChain:PINGAN.model.acceptM,
             callBack:acceptEvnt,
             autoRun:false
         });
+
         PINGAN.BvmEvent.lotteryVM = new Bvm({
             interFace: {func:PINGAN.interFace.acceptInter, async:true},
             modelChain:{func:PINGAN.model.lotteryM, async:true},
@@ -66,6 +75,7 @@ define(function(){
             callBack:goBannerEvnt,
             autoRun:false
         });
+        //一账通宝加挂
         PINGAN.BvmEvent.bannerVm = new Bvm({
             interFace:{func:PINGAN.interFace.getBannerList, async:true},
             viewChain:PINGAN.view.bannerPage,
@@ -77,10 +87,12 @@ define(function(){
             modelChain: PINGAN.model.checkUser,
             autoRun:false
         });
+        //推荐码填写
         PINGAN.BvmEvent.showOcr = new Bvm({
             callBack:showReCode,
             autoRun:false
         });
+        //我的战绩:推荐奖,新人奖
         PINGAN.BvmEvent.myRecord = new Bvm({
             interFace: {func:PINGAN.interFace.myRecordInter, async:true},
             modelChain:{func:PINGAN.model.myRecordM, async:true},
@@ -97,72 +109,50 @@ define(function(){
         })
 }
 
-        function showmyPze(){
-            var $simbot = $(".p-pop-bt-popup");
-            $simbot.tap(function(){
-                PINGAN.BvmEvent.mainPageVM.run();
-            })
-            $('.p-pop-bt-reward').on("click",function(){
-                $('.p-Popup').hide();
-                $('.x-hide-option').hide();
-            })
-
-
-
-        }
-
     function myRepage(){
+
+        $('.bot-hide').on("click",function(){
+            $('.bot-fixed-f').hide();
+        });
         $('.sibemit').on("click",function(){
-            $('.p-main').show();
-            $('#p-sim').css('display','block');
+            $('#info-page').show();
+
             var parentObj = $(this).parent();
             var prizeId = parentObj.children("input[name='prizeId']").val();
             $("#prizeId").val(prizeId);
         });
         $('#x-hide').on("click",function(){
-            $('#p-sim').hide();
+            $('#info-page').hide();
         });
 
         //姓名失去焦点事件
-        $("#Name").on('blur',function(){
+        $("#name").on('blur',function(){
             validateName();
         })
         //收货地址不能为空
-        $("#feil").on('blur',function(){
+        $("#address").on('blur',function(){
             validatefeil();
         })
-        //身份证不能为空
-       // $("#cody-rie").on('blur',function(){
-       //     validaterie();
-       // })
-        //手机不能为空
-       // $("#cody-ph").on('blur',function(){
-          //  validatephon();
-       // })
-        //验证码不能为空
-        $("#verification-cody").on('blur',function(){
-            validateVerifi();
-        })
-
         //身份证失去焦点时间
-        $("#cody-rie").on('blur',function(){
+        $("#cardId").on('blur',function(){
             validateIdCard();
         })
         //手机号码失去焦点事件
-        $("#cody-ph").on('blur',function(){
+        $("#mobaileNo").on('blur',function(){
             validateMabble();
         })
 
         //提交按钮点击事件
-        $(".p-page-sibmit").on('click',function(){
+        $("#p-page-sibmit").on('click',function(){
             submitConvertPrize();
         })
 
     }
 
+
     //验证身份证号码
     function validateIdCard(){
-        var idCard = $('#cody-rie').val();
+        var idCard = $('#cardId').val();
         if(idCard==null||idCard=='') {
             //提示身份证号码不能为空
             $('.p-bottom-null-rie').show();
@@ -179,14 +169,14 @@ define(function(){
             return true;
         }else {
             $('.sim-color').css('display','block');
-            $('.p-bottom-null-rie').show();
+            $('.p-bottom-null-rie').hide();
             return false;
         }
     }
 
     //验证手机号码
     function validateMabble(){
-        var mobileNo = $('#cody-ph').val();
+        var mobileNo = $('#mobaileNo').val();
         if(mobileNo==null||mobileNo=='') {
             //提示身份证号码不能为空
             $('.p-bottom-null-phon').show();
@@ -200,36 +190,40 @@ define(function(){
             return true;
         } else {
             $('.sim-colorph').css('display','block');
-            $('.p-bottom-null-phon').show();
+            $('.p-bottom-null-phon').hide();
             return false;
         }
     }
 
     //姓名不能为空
     function validateName(){
-        var name = $('#Name').val();
+        var name = $('#name').val();
         if(name == null || name ==''){
             $('.p-bottom-null-name').show();
+
             return false;
-        }else if(name.length > 1 || name.length < 16){
+        }else if(name.length > 5){
+            $('.p-bottom-null-size').show();
+        }else if(name.length > 1 || name.length < 5){
             $('.p-bottom-null-name').hide();
+            $('.p-bottom-null-size').hide();
             return true;
         }
     }
     //收货地址不能为空
     function validatefeil(){
-        var code = $('#feil').val();
+        var code = $('#address').val();
         if(code == null || code ==''){
             $('.p-bottom-null-code').show();
             return false;
-        }else if(code.length > 1 || code.length < 16){
+        }else if(code.length > 1 || code.length < 100){
             $('.p-bottom-null-code').hide();
             return true;
         }
     }
     //身份证不能为空
     function validaterie(){
-        var rie = $('#cody-rie').val();
+        var rie = $('#cardId').val();
         if(rie == null || rie ==''){
             $('.p-bottom-null-rie').show();
             return false;
@@ -238,36 +232,10 @@ define(function(){
             return true;
         }
     }
-    //手机不能为空
-    function validatephon(){
-        var phon = $('#cody-ph').val();
-        if(phon == null || phon ==''){
-            $('.p-bottom-null-phon').show();
-            $('.sim-colorph').css('display','none');
-            return false;
-        }else if(phon.length > 1){
-            $('.p-bottom-null-phon').hide();
-            $('.sim-colorph').css('display','block');
-            return true;
-        }
-    }
-    //验证码不能为空
-    function validateVerifi(){
-        var $sim = $('#p-page-sibmit');
-        var verification =$('#verification-cody').val();
-        if(verification == null || verification ==''){
-            $('.p-bottom-null-verif').show();
-            return false;
-        }else if(verification.length > 1 || verification.length < 6){
-            $('.p-bottom-null-verif').hide();
-            return true;
-        }
-    }
-
 
     //提交表单数据
     function submitConvertPrize(prizeId){
-        if(validateName() && validatefeil() && validateVerifi() && validateIdCard() && validateMabble()) {
+        if(validateName() && validatefeil() && validaterie() && validateIdCard() && validateMabble()) {
             var date ={};
 
             var submitUrl = "script/mock/submitRecord.json";
@@ -277,14 +245,15 @@ define(function(){
                 date:date,
                 dataType: 'json',
                 success: function (responseData) {
-                    var resultCode = responseData.body.resultCode;
-                   // alert(responseData.body.resultCode);
+                    var resultCode = responseData.body.Code;
+                    alert(responseData.body.Code);
                    if(resultCode == '1'){
                        alert("提交失败");
                        return false;
                    }else if(resultCode == '0'){
+                       //$('.main_succcess_s').show();
                        alert("提交成功");
-                       $('#p-sim').hide();
+                       $('#info-page').hide();
                        return true;
 
                    }
@@ -293,14 +262,7 @@ define(function(){
             })  ;
 
         }
-
-       // sibmitsle();
-       // window.location.href = PINGAN.BvmEvent;
     }
-
-
-
-
     function  showmyPrize() {
         var $mask = $("#mask-color-opacity-black");
         var $popScene = $("#pop-scene");
@@ -324,12 +286,10 @@ define(function(){
         $myPrize.hide();
     }
     function showmyPze(){
-
-        var $simbot = $(".p-pop-bt-popup");
-
-        $simbot.tap(function(){
-            PINGAN.BvmEvent.mainPageVM.reset();
-            PINGAN.BvmEvent.mainPageVM.run();
+        var $simbot = $("#p-pop-bt-popup");
+         $simbot.tap(function(){
+           // PINGAN.BvmEvent.page_lotteryVM.reset();
+            PINGAN.BvmEvent.page_lotteryVM.run();
         });
 
         $('.p-pop-bt-reward').on("click",function(){
@@ -343,41 +303,141 @@ define(function(){
         var $explain = $(".main_explain"); //活动说明
         var $main_record = $(".main_record"); //我的战绩
         var $main_accBtn = $(".main_accBtn"); //我要领取
-    //    $explain.tap(function(){
-    //        //显示活动规则
-    //        showActiveRule();
-    //    });
-    //    $main_record.tap(function(){
-    //        //显示我的战绩
-    //        App.call(["sendMessage"],function(ticketInfo){
-    //            var ssoTickInfo = JSON.parse(ticketInfo);
-    //            PINGAN.BvmEvent.testRe.run(ssoTickInfo);
-    //        },function(){},["getSSOTicket"]);
-    //        MaiDian("0104-点击'我的战绩'按钮");
-    //    });
-    //    $main_accBtn.tap(function(){
-    //        //我要领取
-    //        App.call(["sendMessage"],function(ticketInfo){
-    //            var ssoTickInfo = JSON.parse(ticketInfo);
-    //            PINGAN.BvmEvent.acceptVM.run(ssoTickInfo);
-    //        },function(){},["getSSOTicket"]);
-    //        MaiDian("0103-点击'我要领取'按钮");
-    //        //PINGAN.BvmEvent.acceptVM.run();
-    //    });
-        $main_record.tap(function(){
-            PINGAN.BvmEvent.testRe.run();
-        })
+        var $login = $(".login");
+            //显示活动规则
+            showloginRule();
+
+        $explain.tap(function(){
+            //显示活动规则
+            showActiveRule();
+        });
+        //
+        //$main_record.tap(function(){
+        //    //显示我的战绩
+        //    App.call(["sendMessage"],function(ticketInfo){
+        //        var ssoTickInfo = JSON.parse(ticketInfo);
+        //        PINGAN.BvmEvent.testRe.run(ssoTickInfo);
+        //    },function(){},["getSSOTicket"]);
+        //    MaiDian("0104-点击'我的战绩'按钮");
+        //});
         $main_accBtn.tap(function(){
+            //我要领取
+            App.call(["sendMessage"],function(ticketInfo){
+                var ssoTickInfo = JSON.parse(ticketInfo);
+                PINGAN.BvmEvent.acceptVM.run(ssoTickInfo);
+            },function(){},["getSSOTicket"]);
+            MaiDian("0103-点击'我要领取'按钮");
             PINGAN.BvmEvent.acceptVM.run();
+        });
+    }
+    function showloginRule(){
+        //姓名失去焦点事件
+        $("#main_phon_code").on('blur',function(){
+            mainphon();
+        })
+        //收货地址不能为空
+        $("#main_phon_input").on('blur',function(){
+            maincode();
+        })
+        //提交按钮点击事件
+        $(".main_accBtn").on('click',function(){
+            loginsubmit();
         })
 
     }
+    function maincode(){
+        var phon_code = $('#main_phon_code').val();
+        if(phon_code==null||phon_code=='') {
+            //提示身份证号码不能为空
+            $('.main-phon-err-code').show();
+            return false;
+        }else{
+            $('.main-phon-err-code').hide();
+            return true;
+        }
+    }
 
-    function page_lotteryEvnt () {
+    function mainphon(){
+        var phon_input = $('#main_phon_input').val();
+        if(phon_input==null||phon_input=='') {
+            //提示身份证号码不能为空
+            $('.main-phon-err').show();
+            return false;
+        }
+        var str = /^1[3|4|5|6|7|8]\d{9}$/;
+        if (str.test(phon_input)) {
+            $('.main-phon-err').hide();
+            return true;
+        } else {
+            $('.main-phon-err').show();
+            return false;
+        }
+
+    }
+    //提交表单数据
+    function loginsubmit(){
+        if(maincode()&& maincode()) {
+            var date ={};
+
+            var submitLogUrl = "script/mock/Login.json";
+            $.ajax({
+                type: "POST",
+                url: submitLogUrl,
+                date:date,
+                dataType: 'json',
+                success: function (response) {
+                    var code = response.body.code;
+                    alert(response.body.code);
+                    if(code == '1'){
+                        alert("提交失败");
+                        return false;
+                    }else if(code == '0'){
+                        alert("提交成功");
+                        return true;
+
+                    }
+                }
+
+            })  ;
+
+        }
+    }
+
+    function page_lotteryEvnt (response) {
+
+        var drawNum = response.body.drawNum;
+        $("#numberOfTime").html(drawNum);
+        var midContent = document.getElementById('midContent');
+        midContent.addEventListener('click',function(e) {
+            var target = e.target;//被指向单击的对象
+
+            if(target.className == "draw_btn" || "draw_btn_code") {
+
+                var date ={};
+                var drawRewardv2Url = "script/mock/drawRewardv2.json";
+                $.ajax({
+                    type: "POST",
+                    url: drawRewardv2Url,
+                    date:date,
+                    dataType: 'json',
+                    success: function (responseData) {
+                        var drawNumber = responseData.body.drawNum;
+                        $("#numberOfTime").html(drawNumber);
+                        if(drawNumber > 0){
+                            PINGAN.BvmEvent.drawVM.run();
+
+                        }else{
+                            $('.continueTask').show();
+                            $('.mainHideOption').show();
+                            $('.mainHideOption').css('position','fixed');
+                        }
+                    }
+
+                }) ;
+            }
+        },false);
 
         var $recordBtn = $("#recordBtn");//我的战绩
-        var $drawcode = $("#drawcode"); //领取抽奖码
-        var $rightbtn = $("#rightbtn"); //弹出框,表示机会用完
         var $taskbtn2 = $("#taskbtn2");//做任务页面
         var $backmain = $("#backmain");//关闭弹出框,回到主页面
         var $mytaskbtn = $("#mytaskbtn");//从弹出框单击到做任务页面
@@ -387,24 +447,11 @@ define(function(){
             //我的战绩
             PINGAN.BvmEvent.testRe.run();
         });
-
-        //单机领取抽奖码的两种情况
-        //1 弹出框,表示机会用完
-        $rightbtn.tap(function(){
-            $('.continueTask').show();
-            $('.mainHideOption').show();
-            $('.mainHideOption').css('position','fixed');
-        });
         //关闭弹出框,回到主页面
         $backmain.tap(function(){
             $('.continueTask').hide();
             $('.mainHideOption').hide();
         });
-        //2 跳转到领取抽奖码页面
-        $drawcode.tap(function(){
-            PINGAN.BvmEvent.drawVM.run();
-        });
-
         //做任务页面
         $taskbtn2.tap(function(){
             PINGAN.BvmEvent.myPrize.run();
@@ -420,7 +467,8 @@ define(function(){
 
     }
 
-    function drawEvnt(){
+    function drawEvnt(response){
+
         var $recordBotton = $("#recordBotton");//我的战绩
         var $task1 = $("#task1");//继续做任务
         var $closedraw = $("#closedraw");//返回page_lottery页面
@@ -433,10 +481,17 @@ define(function(){
         });
         $closedraw.tap(function(){
             //返回page_lottery页面
+
+            PINGAN.BvmEvent.page_lotteryVM.reset();
             PINGAN.BvmEvent.page_lotteryVM.run();
         });
 
     }
+    function overTimeEvnt(response){
+
+
+    }
+
     function showActiveRule () {
         MaiDian("0102-点击'活动规则'按钮");
         var $mask = $("#mask-color-opacity-black");
@@ -556,11 +611,11 @@ define(function(){
                 newAlert("提交时,推荐码不能为空");
             }else{
                 var recomCode = $recom_code.val();
-                 App.call(["sendMessage"],function(ticketInfo){
-                     var ssoTickInfo = JSON.parse(ticketInfo);
-                     sessionStorage.setItem("recomCode",recomCode);
-                     PINGAN.BvmEvent.lotteryVM.run(ssoTickInfo);
-                 },function(){},["getSSOTicket"]);
+                 //App.call(["sendMessage"],function(ticketInfo){
+                 //    var ssoTickInfo = JSON.parse(ticketInfo);
+                 //    sessionStorage.setItem("recomCode",recomCode);
+                 //    PINGAN.BvmEvent.lotteryVM.run(ssoTickInfo);
+                 //},function(){},["getSSOTicket"]);
                 MaiDian("0202-点击'提交'按钮");
                 //PINGAN.BvmEvent.lotteryVM.run();
             }
@@ -586,18 +641,6 @@ define(function(){
         $popScene.hide();
         $reCode.hide();
     }
-
-    //function hidePrize() {
-    //    var $mask = $("#mask-color-opacity-black");
-    //    var $popScene = $("#pop-scene");
-    //    var $reCode = $("#reCode");
-    //    $mask.hide();
-    //    $popScene.hide();
-    //    $reCode.hide();
-    //}
-
-
-
     function copyText () {
         var $copy_recode = $(".copy_recode");
 
@@ -610,7 +653,7 @@ define(function(){
             location.href = PINGAN.appDownUrl;
         });
         $guide_skip_span.tap(function(){
-            PINGAN.BvmEvent.bannerVm.run();
+            PINGAN.BvmEvent.page_lotteryVM.run();
         });
         closeWebView();
         MaiDian("0301-进入'流量领取页面'");
@@ -646,6 +689,7 @@ define(function(){
     return {
         selectPage:selectPage,
         hideReCode:hideReCode,
-        hideMyPrize:hideMyPrize
+        hideMyPrize:hideMyPrize,
+
     };
 });
