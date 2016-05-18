@@ -115,6 +115,7 @@
 .bodyWrap .midContent > .Content {
     float: left;
     margin:0.5rem 0 0 0.6rem;
+    /*background-color:rgba(0,0,0,0.3);*/
 }
 .bodyWrap .midContent .Content_Pic{
     width: 5.1rem;

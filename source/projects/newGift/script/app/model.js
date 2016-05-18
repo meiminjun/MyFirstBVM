@@ -76,6 +76,7 @@ define(function(){
         }
 
         $("#midContent").append(result);
+        debugger;
         expire_time();
         var str = "";
 
@@ -128,8 +129,12 @@ define(function(){
     function drawM (response) {
         var drawCode = response.body.drawCode;
         $("#dramCode").html(drawCode);
+
+
         var drawNum = response.body.drawNum;
         $("#residueDegree").html(drawNum);
+
+
 
     }
     function overTimeM () {
