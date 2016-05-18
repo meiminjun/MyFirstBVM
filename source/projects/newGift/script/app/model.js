@@ -59,22 +59,25 @@ define(function(){
                 prizeCode = item.prizeCode,
                 prizeNum = item.prizeNum,
                 winnerCode = item.winnerCode;
-            var now = new Date();
+
+            var date = new Date();
             var endDate = item.lotteryTime;
 
-            // 获取某个时间格式的时间戳
+            // 获取现在和开奖时间格式的时间戳
+
             var timestamp = Date.parse(new Date(endDate));
                 timestamp = timestamp / 1000;
-
 
             console.log(endDate + "的时间戳为：" + timestamp);
 
 
-            result += '<div class="Content" endTime='+timestamp+'><div class="Content_Pic"></div><div class="Mid"><div class="midleft"><p>已参与的人数:'+activityNum+'</p><p>库存数量:'+prizeNum+'</p><p class="countdown">剩余时间:'+endDate+'</p></div></div><div class="Bottom">中奖号码<span id="leftBottom">'+winnerCode+'</span></div><div class="draw_btn"><span class="draw_btn_code">领取抽奖码</span></div></div>';
+            result += '<div class="Content"><div class="Content_Pic"></div><div class="Mid"><div class="midleft"><p>已参与的人数:'+activityNum+'</p><p>库存数量:'+prizeNum+'</p><p class="countdown" endTime='+timestamp+'>剩余时间:'+str+'</p></div></div><div class="Bottom">中奖号码<span id="leftBottom">'+winnerCode+'</span></div><div class="draw_btn"><span class="draw_btn_code">领取抽奖码</span></div></div>';
 
         }
+
         $("#midContent").append(result);
         expire_time();
+        var str = "";
 
     }
 
@@ -83,7 +86,7 @@ define(function(){
      */
     //倒计时
     function counterClock(left_time) {
-        debugger;
+
         var left_time = parseInt(left_time);
         var days_second = 86400; //每天時間
         var hours_second = days_second / 24;
@@ -103,16 +106,17 @@ define(function(){
     }
 
     function expire_time() {
+
         $('#midContent').each(function() {
             var time_obj = $(this).find('.midleft');
-            var left_time_int = time_obj.attr('endTime');
-            if(left_time_int) {
-                var time_string = counterClock(left_time_int);
+            var endTime = time_obj.attr('endTime');
+            if(endTime) {
+                var time_string = counterClock(endTime);
                 if(time_string == '')
                     time_obj.html('<span class="pngfix">&nbsp;</span>已失效');
                 else {
                     time_obj.html('<span class="pngfix">&nbsp;</span>' + time_string);
-                    time_obj.attr('endTime', left_time_int - 1);
+                    time_obj.attr('endTime', endTime - 1);
                 }
             }
         });
