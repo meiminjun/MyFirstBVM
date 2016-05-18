@@ -81,9 +81,10 @@ body,html{
     border-radius: 1rem;
     float: left;
     margin-left: 0.5rem;
+    margin-top: 0.3rem;
 }
 .cen-draw-c{
-    margin-top: 1rem;
+    margin-top: 0.6rem;
 }
 .cen-draw-i{
     width:100%;;
@@ -160,9 +161,7 @@ html,body{
     top: -0.8rem;
     left: 0.4rem;
 }
-input{
-    outline: none;
-}
+
 .p-cody{
     font-size: 1.5rem;
 }
@@ -226,17 +225,184 @@ input{
     top: 1.5rem;
 }
 .simt-tur{
-    width: 1.5rem;
+    width: 2.5rem;
     text-align: center;
     position: relative;
-    top: 0.8rem;
+    top: 0.6rem;
     color: #F98412;
     margin: 0 auto;
+    font-size: 0.9rem;
 }
 
-.p-sim{
-    display: none;
+/*.p-page{*/
+    /*display: none;*/
+    /*position: fixed;*/
+/*}*/
+
+
+/*收货信息页面*/
+  .content-fetchCaptcha{
+      position: relative;
+      width: 4rem;
+      height: 1.3rem;
+      left: 7rem;
+      top: -1rem;
+      background-size: cover;
+      background: #ffae0b;
+      font-size: 0.7rem;
+      color: #fff;
+      text-align: center;
+      line-height: 1.3rem;
+  }
+.info-page{
+    display:none;
+    position:absolute;
+    background: #ffffff;
+    height: 18.627rem;
+    width: 12rem;
+    top: 3rem;
+}
+
+.btn-back{
     position: fixed;
+    width: 1rem;
+    height:1rem;
+    top:1rem;
+    left:1rem;
+    /*background: url("../img/back.png") no-repeat;*/
+    background-size: cover;
+    z-index:6;
+}
+
+.info-title{
+    height:1rem;
+    line-height: 1rem;
+    font-size: 1rem;
+    text-align: center;
+}
+.info-content{
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    top: 4rem;
+}
+.input-box{
+    width: 12rem;
+    height: 2rem;
+    margin-left: 5rem;
+}
+
+.input-box.name-content{
+    position: relative;
+    top:1rem;
+}
+
+.input-box.addr-content{
+    position: relative;
+    top:1rem;
+}
+
+.input-box.cre-content{
+    position: relative;
+    top:1rem;
+}
+
+.input-box.phone-content{
+    position: relative;
+    top:1rem;
+}
+
+.input-box.code-content{
+    position: relative;
+    top:1rem;
+}
+
+.info-bottom-line{
+    width: 11rem;
+    height: 0.2rem;
+    border: solid;
+    border-width: 0 0.04rem 0.04rem 0.04rem;
+    border-color: rgb(221,221,221);
+    z-index: 100;
+    margin-top: 0.2rem;
+    position: relative;
+    left: -4.5rem;
+}
+
+.error-tip{
+    visibility: hidden;
+    width: 0rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.5rem;
+    /* text-indent: -4rem; */
+    color: #ff9002;
+    position: relative;
+    left: -4rem;
+    top: -0.3rem;
+}
+
+s.content-input {
+    margin-left: -4rem;
+    font-size: 0.6rem;
+    border: 3rem;
+    outline-width: 0;
+    width: 10rem;
+}
+
+.content-input.content-input-code{
+    width:4rem;
+}
+.content-cancel{
+    display: none;
+    background-size: cover;
+    width: 10rem;
+    height: 3rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    float: right;
+}
+.code-content > .content-cancel{
+    margin-right:1rem;
+}
+
+.btn-confirm-submit{
+    border: 0.1rem solid;
+    border-color: rgb(255,144,2);
+    position: relative;
+    top: 6.3rem;
+    left: 4rem;
+    width: 3rem;
+    height: 3rem;
+    -webkit-border-radius: 1rem;
+    border-radius: 2rem;
+    background: rgb(255,238,218);
+    text-align: center;
+    z-index: 66;
+}
+
+.confirm-text{
+    position: relative;
+    top: 0.5rem;
+    left: 0.1rem;
+    line-height: 1rem;
+    font-size: 1rem;
+    color: rgb(255,109,0);
+}
+
+
+
+.p-page-down-two{
+    display: none;
+    width: 1rem;
+    height:1rem;
+}
+.p-page-background{
+    width:1rem;
+    height:1rem;
+    background-size:cover;
+    position: relative;
+    left: 1rem;
 }
 
 .x-hide{
@@ -246,10 +412,10 @@ input{
     height: 1rem;
     float: right;
     position: relative;
-    top: 0.5rem;
+    top: 0rem;
     left: -0.5rem;
 z-index: 9;
-    
+
 }
 
 .sibemit{
@@ -267,16 +433,51 @@ z-index: 9;
     position: fixed;
     /* display: none; */
 }
-
-.p-page-main{
-    background: #fff;
-    height: 18.627rem;
-    width:100%;width: 12rem;
+.sibemitNo{
+    background: #ffae0b;
+    width: 3.68rem;
+    height: 1.28rem;
+    border-radius: 1rem;
+    color: #671c02;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 1.28rem;
+    margin-top: -2rem;
+    margin-left: 0.7rem;
+    z-index: 9;
+    position: fixed;
+}
+.p-head-w{
+    margin-top: 0.5rem;
+}
+.main_succcess{
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.4rem;
+    background: #464646;
+    border-radius: 0.4rem;
+    color: #fff;
+    position: relative;
+    top: -4rem;
+    left: 4rem;
 }
 
+.main_succcess_s{
+    position: fixed;
+    z-index: 999;
+}
+/*.p-page-main{*/
+    /*background: #fff;*/
+    /*height: 18.627rem;*/
+    /*width:100%;width: 12rem;*/
+/*}*/
+
 .p-main-fell{
-    height: 80%;
-    margin-top: 3rem;
+    height: 4rem;
+    margin-top: 0.5rem;
     margin-bottom: 3rem;
 }
 
@@ -284,39 +485,43 @@ z-index: 9;
     font-size: 0.97rem;
     text-align: center;
     margin-bottom: 0.9rem;
-    position: relative;top: 0.5rem;
+    position: relative;
+    top: 0.5rem;
 }
 
 .p-recode-rt{
     font-size: 0.5rem;
     margin-bottom: 0.3rem;
+    margin-left: 0.5rem;
 }
 .p-recode-rte{
     font-size: 0.66rem;
     margin-bottom: 0.3rem;
+    margin-left: 0.5rem;
 }
 .sim-cody{
     position: relative;
     top: 0.3rem;
 }
 
-.p-page{
-    position:relative;
-    top:-24rem;
-}
+/*.p-page{*/
+    /*position:relative;*/
+    /*top:-24rem;*/
+/*}*/
 
 .dsn{
     font-size: 0.5rem;
     width: 5.5rem;
     position: relative;
-    top: -0.4rem;
+    top: 0rem;
+    left: -4rem;
 }
 .dsim{
     font-size: 0.5rem;
     width: 4rem;
-    margin-top: 2.3rem;
     position: relative;
-    left: 0.4rem;
+    left: -4rem;
+    top: 0rem;
 }
 
 .sim-color{
@@ -329,34 +534,97 @@ z-index: 9;
 }
 .p-bottom-null{
     font-size: 0.5rem;
-    width: 5rem;
+    width: 6rem;
     color: red;
     height: 0.1rem;
     display: none;
 }
 .p-bottom-null-name{
     position: relative;
-    top: -0.4rem;
-    left: -0.6rem;
+    top: 0rem;
+    left: -4rem;
 }
 .p-bottom-null-code{
     position: relative;
-    top: -0.4rem;
+    top: 0.1rem;
+    left: -4rem;
 }
 .p-bottom-null-rie{
     position: relative;
-    top: 0.8rem;
-    left: 0.2rem;
+    top: 0rem;
+    left: -4rem;
 }
 .p-bottom-null-phon{
     position: relative;
-    top: -0.4rem;
+    top: 0rem;
+    left: -4rem;
 }
-.p-bottom-null-verif{
+/*.p-bottom-null-verif{*/
+    /*position: relative;*/
+    /*top: 0.2rem;*/
+    /*left: -0.2rem;*/
+/*}*/
+.p-bottom-null-size{
+    /*display: block;*/
     position: relative;
-    top: 0.2rem;
-    left: -0.2rem;
+    left: -4rem;
 }
+.bot-fixed-on{
+    position: fixed;
+    width: 12rem;
+    z-index: 9;
+}
+.bot-fixed {
+    height: 4.56rem;
+    width: 12rem;
+    background: #6f5239;
+    position: relative;
+    top: 6.3rem;
+    opacity: 0.4;
+    z-index: 9;
+}
+
+.bot-fixed-ts{
+    font-size: 0.45rem;
+    height: 2rem;
+    width: 8.5rem;
+    position: relative;
+    top: 0rem;
+    left: 2.6rem;
+    color: #ffffff;
+    line-height: 0.6rem;
+}
+.bot-fixed-img{
+    position: relative;
+    top: 2rem;
+    left: 0.2rem;
+    width: 2rem;
+}
+.bot-hide{
+    float: right;
+    position: relative;
+    top: -2.6rem;
+    left: -0.3rem;
+}
+.bot-fixed-col{
+    color: #ffe339;
+
+}
+.bot-fixed-botton{
+    height: 1.168rem;
+    width: 4.16rem;
+    background: #ff6000;
+    border-radius: 1rem;
+    line-height: 1.168rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.bot-fixed-botton a{
+    color: #ffffff;
+    text-decoration:none;
+}
+
 
 
 

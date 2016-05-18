@@ -1,7 +1,10 @@
 {
   "body": {
-    "resultCode": "0"
-  },
-  "code": "0",
-  "message": " Operation successfully."
+
+    "Code": "0",
+    "message": " Operation successfully."
+},
+    "code": "6301",
+    "message": "Captcha Code error"
 }
+

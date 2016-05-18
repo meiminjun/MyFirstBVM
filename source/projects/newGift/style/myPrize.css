@@ -145,6 +145,14 @@ top: 0.2rem;
     font-size: 0.5rem;
     margin-top: 0.3rem;
 }
+.recom_btn_h{
+   position: relative;
+   left: -2rem;
+}
+.recom_btn_inp{
+   position: relative;
+    left:2rem;
+}
 .p-pop-bt{
     position: relative;
     top: 2.2rem;

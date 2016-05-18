@@ -114,7 +114,7 @@ function closeWebView () {
 }
 function callBackZero () {
     //所有回调链归零重置
-    PINGAN.BvmEvent.mainPageVM.backZero();
+    PINGAN.BvmEvent.indexVM.backZero();
     PINGAN.BvmEvent.acceptVM.backZero();
     PINGAN.BvmEvent.lotteryVM.backZero();
     PINGAN.BvmEvent.guideVm.backZero();
@@ -122,6 +122,8 @@ function callBackZero () {
     PINGAN.BvmEvent.checkUser.backZero();
     PINGAN.BvmEvent.showOcr.backZero();
     PINGAN.BvmEvent.myRecord.backZero();
+    //PINGAN.BvmEvent.page_lotteryVM.backZero();
+    //PINGAN.BvmEvent.drawVM.backZero();
 }
 function getScreenInfo () {
     var width = window.screen.width;
@@ -182,7 +184,7 @@ define(function(require){
         var deviceInfo = JSON.parse(r);
         PINGAN.userInfo.pluginId = "PA02100000000_02_XRLD";
         PINGAN.userInfo.deviceId = deviceInfo.deviceId||"";
-        PINGAN.userInfo.deviceType = deviceInfo.deviceType||""
+        PINGAN.userInfo.deviceType = deviceInfo.deviceType||"";
         PINGAN.userInfo.osVersion = deviceInfo.osVersion||"";
         PINGAN.userInfo.appVersion = deviceInfo.appVersion||"";
         PINGAN.userInfo.sdkVersion = deviceInfo.anyDoorSdkVersion||"";

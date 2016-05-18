@@ -49,6 +49,8 @@
         <div class="recom_submit font-h2">提交</div>
         <div class="recom_no_code font-h2">没有推荐码</div>
     </div>
+    <!--登陆超时重新登陆-->
+
     <!--活动规则-->
     <div id="activeRule" class="main_pop main_pop_high">
         <div class="main_pop_title"></div>
@@ -73,8 +75,12 @@
 <div id="page">
     <!--首页-->
     <div id="page_main" class="pageMode"></div>
-
-    <div id="page_lottery" class="pageMode"></div>
+    <!--超时浮层-->
+    <div id="page_overTime" class="pageMode"></div>
+    <!--抽奖页面-->
+    <div id="page_lottery" class="pageMode" style="overflow:scroll"></div>
+    <!--领取抽奖码页面-->
+    <div id="page_draw" class="pageMode"></div>
     <!--注册引导页-->
     <div id="page_guide" class="pageMode page_light"></div>
     <!--流量领取成功页-->
@@ -85,14 +91,11 @@
     <div id="page_myRecord" class="pageMode"></div>
     <!--做任务赢大奖-->
     <div id="page_myPrize" class="pageMode"></div>
-
-    <!--单击抽奖页,弹出窗口表示机会用完-->
-    <div id="page_draw" class="pageMode"></div>
     <!--错误页-->
     <div id="page_error" class="pageMode"></div>
 </div>
 <!--剪切版功能-->
 <script src="script/libs/require/v2.1.11/require.js" defer="defer" data-main="script/main"></script>
-<script src="script/time.js"></script>
+
 </body>
 </html>

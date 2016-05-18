@@ -1,7 +1,7 @@
 <section class="bodyWrap" id="bodyWrap">
 
     <div class="headPic">
-        <div class="rightPic"></div>
+        <div class="backPic"></div>
         <img src="style/images/headPic.png" >
     </div>
 
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="reminder">目前你有&nbsp<span id="numberOfTime" style="color: red">2</span>&nbsp次领取机会</div>
+    <div class="reminder">目前你有&nbsp<span id="numberOfTime" style="color: red">0</span>&nbsp次领取机会</div>
 
     <div class="task">
         <div class="taskBtn">
@@ -26,40 +26,8 @@
         </div>
     </div>
 
-    <div class="contentPic">
-        <div class="left">
-            <div class="leftPic"></div>
-            <div class="Mid">
-                <p>已参与的人数 <span id="population_0">20000</span></p>
-                <p>库存数量<span id="prizeQty">5432</span></p>
-                <p>剩余时间<span id="time">02:45:00</span></p>
-            </div>
-            <div class="Bottom">中奖号码<span id="leftBottom">384921</span></div>
-            <div class="leftbtn">
-                <span id="drawcode">领取抽奖码</span>
-            </div>
-        </div>
-        <div class="right">
-            <div class="rightPic"></div>
-            <div class="Mid">
-                <p>已参与的人数 <span id="peopleNumber">10000</span></p>
-                <p>库存数量<span>5432</span></p>
-                <p>剩余时间<span id="time2">02:45:00</span></p>
-            </div>
-            <div class="Bottom">中奖号码公布区</div>
-            <div class="rightbtn">
-                <span id="drawcode2">领取抽奖码</span>
-            </div>
-        </div>
+    <div id="midContent" class="midContent row" style="margin-left:0.05rem">
     </div>
-    <!--<div class="bottomContent">-->
-        <!--<div class="leftbtn">-->
-            <!--<span id="drawcode" >领取抽奖码</span>-->
-        <!--</div>-->
-        <!--<div class="rightbtn">-->
-            <!--<span id="drawcode2">领取抽奖码</span>-->
-        <!--</div>-->
-    <!--</div>-->
 
 </section>
 
@@ -68,7 +36,8 @@
 <section >
 <div class="continueTask">
     <div id="backmain">
-        <img src="style/images/close.png" style="width: 0.8rem;margin-left:9rem" />
+        <img src="style/images/close.png" style="width: 0.8rem;margin-left:9.2rem;
+    margin-top: 0.3rem;" />
     </div>
     <div class="fontContent">
         <div class="wordContent">您的领取抽奖码机会已用完!</div>
@@ -84,19 +53,20 @@
     </div>
     <div class="task">
         <div class="taskBtn" id="mytaskbtn">
-            <img src="style/images/continuetask.png" style="width: 3rem">
+            <img src="style/images/continuetask.png" style="width: 4rem">
         </div>
         <div class="recordBtn" id="myrecordbtn" >
-            <img src="style/images/myrecord.png" style="width: 2.5rem">
+            <img src="style/images/myrecord.png" style="width: 3rem">
         </div>
     </div>
     <div class="recommendBox">
         <div class="footerPic">
-            <img src="style/images/hand.png" style="width: 1.5rem">
+            <img src="style/images/hand.png" style="width: 1.5rem;position: absolute;
+    top: 11.4rem;">
         </div>
         <div class="bot-fel-mend">推荐好友注册，拿超级推荐奖励</div>
         <div class="bot-fel-recomm">注册时需要填写你的推荐码</div>
-        <div class="recommend">推荐码 <input type="text" id="guideReCodeNo" class="font-h2" value="233945" />
+        <div class="recommend"><span>推荐码</span> <input type="text" id="guideReCodeNo" class="font-h2" value="233945" />
     </div>
 </div>
 </section>
